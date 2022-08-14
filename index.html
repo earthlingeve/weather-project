@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Weather</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/1867c4022b.js"
+      crossorigin="anonymous"
+    ></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container entire-card">
+      <form class="citySearch" id="search-bar">
+        <input
+          type="text"
+          class="search"
+          id="search-city"
+          placeholder="Search your city here"
+        />
+        <input type="submit" value="Search" />
+      </form>
+      <button id="location-button">Current Location</button>
+      <h2 id="current-city">Chicago</h2>
+      <h3>time</h3>
+      <div class="todayTemp">
+        <span id="main-temp">71</span> <span><a id="celsius" href="null">C°</a> |<a id="farenheit" href="null"
+          >°F</a
+        ></span>
+      </div>
+      <div class="emoji">☀️</div>
+      <div class="highAndLow">H:88°|L:66°F</div>
+    </br>
+      <p class="floatRight">
+        Sunny<br />
+        Precipitation: 0% <br />
+        Humidity:90%
+      </p>
+      <hr />
+
+      <div class="row">
+        <div class="col">
+          <strong>Monday</strong>
+          <div class="futureEmoji">☀️</div>
+          <div class="future-forecast">H:90°F|L:77°F</div>
+        </div>
+        <div class="col">
+          <strong>Tuesday</strong>
+          <div class="futureEmoji">🌥️</div>
+          <div class="future-forecast">H:89°F|L:75°F</div>
+        </div>
+        <div class="col">
+          <strong>Monday</strong>
+          <div class="futureEmoji">⛈️</div>
+          <div class="future-forecast">H:81°F|L:64°F</div>
+        </div>
+        <div class="col">
+          <strong>Thursday</strong>
+          <div class="futureEmoji">🌦️</div>
+          <div class="future-forecast">H:80°F|L:61°F</div>
+        </div>
+        <div class="col">
+          <strong>Friday</strong>
+          <div class="futureEmoji">☀️</div>
+          <div class="future-forecast">H:86°F|L:68°F</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>
 
