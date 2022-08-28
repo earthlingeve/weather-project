@@ -34,20 +34,25 @@ function showTemp(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
-  let humidityElement = document.querySelector("#humidity-element");
-  humidityElement.innerHTML = `${humidity}`;
-  let description = response.data.weather[0].description;
-  let descriptionElement = document.querySelector("#description-element");
-  descriptionElement.innerHTML = `${description}`;
   let wind = Math.round(response.data.wind.speed);
-  let windElement = document.querySelector("#wind-element");
-  windElement.innerHTML = `${wind}`;
+  let description = response.data.weather[0].description;
+  let icon = response.data.weather[0].icon;
+
+  let descriptionElement = document.querySelector("#description-element");
   let time = document.querySelector("#time");
-  time.innerHTML = formatDate(response.data.dt * 1000);
+  let humidityElement = document.querySelector("#humidity-element");
+  let windElement = document.querySelector("#wind-element");
   let currentTemp = document.querySelector("#main-temp");
-  currentTemp.innerHTML = `${temperature}`;
   let h2 = document.querySelector("#current-city");
+  let weatherIcon = document.querySelector("#weather-icon");
+
+  descriptionElement.innerHTML = `${description}`;
+  windElement.innerHTML = `${wind}`;
+  time.innerHTML = formatDate(response.data.dt * 1000);
+  currentTemp.innerHTML = `${temperature}`;
+  humidityElement.innerHTML = `${humidity}`;
   h2.innerHTML = response.data.name;
+  weatherIcon.innerHTML = `${icon}`;
 }
 function giveCurrentLocation(response) {
   console.log(response);
@@ -65,8 +70,6 @@ function giveCurrentLocation(response) {
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description-element");
   descriptionElement.innerHTML = `${description}`;
-  let time = document.querySelector("#time");
-  time.innerHTML = formatDate(response.data.dt * 1000);
 }
 function showCurrentLocation(position) {
   let latt = position.coords.latitude;
