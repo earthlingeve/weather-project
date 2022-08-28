@@ -1,24 +1,25 @@
-let h3 = document.querySelector("h3");
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let hours = now.getHours();
-let minutes = now.getMinutes();
-if (hours < 10) {
-  hours = `0${hours}`;
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${day} ${hours}:${minutes}`;
 }
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-h3.innerHTML = `${day} ${hours}:${minutes}`;
 
 function isSearch(event) {
   event.preventDefault();
@@ -41,6 +42,8 @@ function showTemp(response) {
   let wind = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#wind-element");
   windElement.innerHTML = `${wind}`;
+  let time = document.querySelector("#time");
+  time.innerHTML = formatDate(response.data.dt * 1000);
   let currentTemp = document.querySelector("#main-temp");
   currentTemp.innerHTML = `${temperature}`;
   let h2 = document.querySelector("#current-city");
@@ -62,6 +65,8 @@ function giveCurrentLocation(response) {
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description-element");
   descriptionElement.innerHTML = `${description}`;
+  let time = document.querySelector("#time");
+  time.innerHTML = formatDate(response.data.dt * 1000);
 }
 function showCurrentLocation(position) {
   let latt = position.coords.latitude;
