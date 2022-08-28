@@ -30,25 +30,37 @@ function isSearch(event) {
 }
 
 function showTemp(response) {
-  // console.log(response.data);
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
+  let humidity = response.data.main.humidity;
+  let humidityElement = document.querySelector("#humidity-element");
+  humidityElement.innerHTML = `${humidity}`;
+  let description = response.data.weather[0].description;
+  let descriptionElement = document.querySelector("#description-element");
+  descriptionElement.innerHTML = `${description}`;
   let currentTemp = document.querySelector("#main-temp");
   currentTemp.innerHTML = `${temperature}`;
   let h2 = document.querySelector("#current-city");
   h2.innerHTML = response.data.name;
 }
 function giveCurrentLocation(response) {
-  // console.log(response);
+  console.log(response);
   let h2 = document.querySelector("#current-city");
   h2.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#main-temp");
   currentTemp.innerHTML = `${temperature}`;
+  let humidity = response.data.main.humidity;
+  let humidityElement = document.querySelector("#humidity-element");
+  humidityElement.innerHTML = `${humidity}`;
+  let description = response.data.weather[0].description;
+  let descriptionElement = document.querySelector("#description-element");
+  descriptionElement.innerHTML = `${description}`;
 }
 function showCurrentLocation(position) {
   let latt = position.coords.latitude;
   let lonn = position.coords.longitude;
-  console.log(position);
+  //console.log(position);
   let apiKey = "9251248a80cd4432d5256905f9a0ea2f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latt}&lon=${lonn}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(giveCurrentLocation);

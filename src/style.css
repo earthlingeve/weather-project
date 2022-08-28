@@ -13,6 +13,9 @@ h3 {
 ul {
   list-style: none;
 }
+li {
+  text-transform: capitalize;
+}
 .todayTemp {
   text-align: center;
 }
