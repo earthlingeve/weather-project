@@ -53,6 +53,9 @@ function giveCurrentLocation(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#main-temp");
   currentTemp.innerHTML = `${temperature}`;
+  let wind = Math.round(response.data.wind.speed);
+  let windElement = document.querySelector("#wind-element");
+  windElement.innerHTML = `${wind}`;
   let humidity = response.data.main.humidity;
   let humidityElement = document.querySelector("#humidity-element");
   humidityElement.innerHTML = `${humidity}`;
