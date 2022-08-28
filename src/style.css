@@ -13,7 +13,7 @@ h3 {
 ul {
   list-style: none;
 }
-li {
+#description-element {
   text-transform: capitalize;
 }
 .todayTemp {

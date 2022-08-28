@@ -38,6 +38,9 @@ function showTemp(response) {
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description-element");
   descriptionElement.innerHTML = `${description}`;
+  let wind = Math.round(response.data.wind.speed);
+  let windElement = document.querySelector("#wind-element");
+  windElement.innerHTML = `${wind}`;
   let currentTemp = document.querySelector("#main-temp");
   currentTemp.innerHTML = `${temperature}`;
   let h2 = document.querySelector("#current-city");
