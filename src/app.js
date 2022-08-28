@@ -7,7 +7,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Satruday",
+  "Saturday",
 ];
 let day = days[now.getDay()];
 let hours = now.getHours();

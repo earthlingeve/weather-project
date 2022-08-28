@@ -4,7 +4,7 @@
   font-family: "Taviraj", serif;
   max-width: 800px;
 }
-h2 {
+h1 {
   text-align: center;
 }
 h3 {
@@ -16,12 +16,16 @@ ul {
 .todayTemp {
   text-align: center;
 }
-.emoji {
-  text-align: center;
+#main-temp {
+  font-size: 22px;
 }
-.todayTemp {
+.current-emoji {
+  text-align: center;
   font-size: 22px;
 }
 .githubLink {
   text-align: center;
+}
+#units {
+  font-size: 14px;
 }
