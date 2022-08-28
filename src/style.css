@@ -2,6 +2,7 @@
   background: linear-gradient(#5e63b6, #a393eb, #f5c7f7);
   border-radius: 20px;
   font-family: "Taviraj", serif;
+  max-width: 800px;
 }
 h2 {
   text-align: center;
@@ -9,21 +10,14 @@ h2 {
 h3 {
   text-align: center;
 }
+ul {
+  list-style: none;
+}
 .todayTemp {
   text-align: center;
 }
 .emoji {
   text-align: center;
-}
-.highAndLow {
-  text-align: center;
-}
-.floatRight {
-  color: rebeccapurple;
-  position: relative;
-  top: -70px;
-  left: 300px;
-  display: block;
 }
 .todayTemp {
   font-size: 22px;

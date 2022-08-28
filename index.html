@@ -15,7 +15,7 @@
       src="https://kit.fontawesome.com/1867c4022b.js"
       crossorigin="anonymous"
     ></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -30,21 +30,29 @@
         <input type="submit" value="Search" />
       </form>
       <button id="location-button">Current Location</button>
-      <h2 id="current-city">Chicago</h2>
-      <h3>time</h3>
-      <div class="todayTemp">
-        <span id="main-temp">71</span> <span><a id="celsius" href="null">C°</a> |<a id="farenheit" href="null"
-          >°F</a
-        ></span>
+      <div class="row">
+        <div class="col-6">
+          <h2 id="current-city">Chicago</h2>
+          <h3>time</h3>
+          <div class="todayTemp">
+            <span id="main-temp">71</span>
+            <span
+              ><a id="celsius" href="null">C°</a> |<a id="farenheit" href="null"
+                >°F</a
+              >
+            </span>
+          </div>
+          <div class="emoji">☀️</div>
+        </div>
+        <div class="col-6" id="description">
+          <ul>
+            <li>H:88°|L:66°F</li>
+            <li>Sunny</li>
+            <li>Precipitation: 0%</li>
+            <li>Humidity:90%</li>
+          </ul>
+        </div>
       </div>
-      <div class="emoji">☀️</div>
-      <div class="highAndLow">H:88°|L:66°F</div>
-    </br>
-      <p class="floatRight">
-        Sunny<br />
-        Precipitation: 0% <br />
-        Humidity:90%
-      </p>
       <hr />
 
       <div class="row">
@@ -75,9 +83,15 @@
         </div>
       </div>
     </div>
-    <div class="githubLink"> <a href="https://github.com/earthlingeve/weather-project" target=”_blank”>open-source code</a>  by Evelyn Alanis</div>
+    <div class="githubLink">
+      <a
+        href="https://github.com/earthlingeve/weather-project"
+        target="”_blank”"
+        >open-source code</a
+      >
+      by Evelyn Alanis
+    </div>
 
     <script src="src/app.js"></script>
   </body>
 </html>
-
