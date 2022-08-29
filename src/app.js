@@ -100,20 +100,23 @@ form.addEventListener("submit", isSearch);
 let locButton = document.querySelector("#location-button");
 locButton.addEventListener("click", currentPosition);
 
+function changeMeasurementC(event) {
+  event.preventDefault();
+  let mainTemp = document.querySelector("#main-temp");
+  let celsiusTemp = "testing";
+  mainTemp.innerHTML = celsiusTemp;
+}
+function changeMeasurementF(event) {
+  event.preventDefault();
+  let mainTemp = document.querySelector("#main-temp");
+  let farenheitTemp = (14 * 9) / 5 + 32;
+  mainTemp.innerHTML = farenheitTemp;
+}
+
+let farenheit = document.querySelector("#farenheit");
+let celsius = document.querySelector("#celsius");
+
+celsius.addEventListener("click", changeMeasurementC);
+farenheit.addEventListener("click", changeMeasurementF);
+
 currentPosition();
-//function changeMeasurementC(event) {
-//event.preventDefault();
-//let mainTemp = document.querySelector("#main-temp");
-//mainTemp.innerHTML = "28";
-//}
-//function changeMeasurementF(event) {
-//event.preventDefault();
-//let mainTemp = document.querySelector("#main-temp");
-//mainTemp.innerHTML = "83";
-//}
-
-//let farenheit = document.querySelector("#farenheit");
-//let celsius = document.querySelector("#celsius");
-
-//celsius.addEventListener("click", changeMeasurementC);
-//farenheit.addEventListener("click", changeMeasurementF);
