@@ -31,20 +31,19 @@ function isSearch(event) {
 }
 
 function showTemp(response) {
-  console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
-  let humidity = response.data.main.humidity;
-  let wind = Math.round(response.data.wind.speed);
-  let description = response.data.weather[0].description;
-  let icon = response.data.weather[0].icon;
-
   let descriptionElement = document.querySelector("#description-element");
   let time = document.querySelector("#time");
   let humidityElement = document.querySelector("#humidity-element");
   let windElement = document.querySelector("#wind-element");
   let currentTemp = document.querySelector("#main-temp");
   let h2 = document.querySelector("#current-city");
-  let weatherIcon = document.querySelector("#weather-icon");
+  let iconElement = document.querySelector("#icon");
+
+  console.log(response.data);
+  let temperature = Math.round(response.data.main.temp);
+  let humidity = response.data.main.humidity;
+  let wind = Math.round(response.data.wind.speed);
+  let description = response.data.weather[0].description;
 
   descriptionElement.innerHTML = `${description}`;
   windElement.innerHTML = `${wind}`;
@@ -52,7 +51,11 @@ function showTemp(response) {
   currentTemp.innerHTML = `${temperature}`;
   humidityElement.innerHTML = `${humidity}`;
   h2.innerHTML = response.data.name;
-  weatherIcon.innerHTML = `${icon}`;
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 function giveCurrentLocation(response) {
   console.log(response);
@@ -70,6 +73,12 @@ function giveCurrentLocation(response) {
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description-element");
   descriptionElement.innerHTML = `${description}`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 function showCurrentLocation(position) {
   let latt = position.coords.latitude;
