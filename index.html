@@ -20,42 +20,51 @@
   </head>
   <body>
     <div class="container entire-card">
-      <form class="citySearch" id="search-bar">
-        <input
-          type="text"
-          class="search"
-          id="search-city"
-          placeholder="Search your city here"
-        />
-        <input type="submit" value="Search" />
-      </form>
-      <button id="location-button">Current Location</button>
-      <div class="row">
-        <div class="col-6">
-          <h1 id="current-city">Chicago</h1>
-          <h3>Last updated: <span id="time"></span></h3>
-          <div class="todayTemp">
-            <span class="current-emoji">
-              <img src="" alt="" id="icon" class="float-left" /></span
-            ><span id="main-temp">71</span>
-            <span
-              ><small id="units"
-                ><a id="celsius" href="null">C°</a>|<a
-                  id="farenheit"
-                  href="null"
-                  >°F</a
-                ></small
-              >
-            </span>
+      <div class="searchEngine">
+        <span>
+          <form class="citySearch" id="search-bar">
+            <input
+              type="text"
+              class="search"
+              id="search-city"
+              placeholder="Search your city here"
+            />
+            <button type="submit" value="Search" class="btn btn-primary">
+              Search
+            </button>
+          </form>
+          <button id="location-button" class="btn btn-primary">
+            Current Location
+          </button>
+        </span>
+      </div>
+      <div class="currentWeatherSection">
+        <div class="row">
+          <div class="col-6">
+            <h1 id="current-city">Chicago</h1>
+            <h3>Last updated: <span id="time"></span></h3>
+            <div class="todayTemp" class="d-flex">
+              <span class="currentEmoji"> <img src="" alt="" id="icon" /></span
+              ><span id="main-temp">71</span>
+              <span
+                ><small id="units"
+                  ><a id="celsius" href="null">C°</a>|<a
+                    id="farenheit"
+                    href="null"
+                    >°F</a
+                  ></small
+                >
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="col-6" id="description">
-          <ul>
-            <li>H:88°|L:66°F</li>
-            <li><span id="description-element">sunny</span></li>
-            <li>Wind: <span id="wind-element">2</span> mph</li>
-            <li>Humidity: <span id="humidity-element">80</span>%</li>
-          </ul>
+          <div class="col-6" id="description">
+            <ul>
+              <li>H:88°|L:66°F</li>
+              <li><span id="description-element">sunny</span></li>
+              <li>Wind: <span id="wind-element">2</span> mph</li>
+              <li>Humidity: <span id="humidity-element">80</span>%</li>
+            </ul>
+          </div>
         </div>
       </div>
       <hr />
@@ -64,27 +73,27 @@
         <div class="col">
           <strong>Monday</strong>
           <div class="futureEmoji">☀️</div>
-          <div class="future-forecast">H:90°F|L:77°F</div>
+          <div class="futureForecast">H:90°F|L:77°F</div>
         </div>
         <div class="col">
           <strong>Tuesday</strong>
           <div class="futureEmoji">🌥️</div>
-          <div class="future-forecast">H:89°F|L:75°F</div>
+          <div class="futureForecast">H:89°F|L:75°F</div>
         </div>
         <div class="col">
           <strong>Monday</strong>
           <div class="futureEmoji">⛈️</div>
-          <div class="future-forecast">H:81°F|L:64°F</div>
+          <div class="futureForecast">H:81°F|L:64°F</div>
         </div>
         <div class="col">
           <strong>Thursday</strong>
           <div class="futureEmoji">🌦️</div>
-          <div class="future-forecast">H:80°F|L:61°F</div>
+          <div class="futureForecast">H:80°F|L:61°F</div>
         </div>
         <div class="col">
           <strong>Friday</strong>
           <div class="futureEmoji">☀️</div>
-          <div class="future-forecast">H:86°F|L:68°F</div>
+          <div class="futureForecast">H:86°F|L:68°F</div>
         </div>
       </div>
     </div>

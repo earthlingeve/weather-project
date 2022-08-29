@@ -16,11 +16,14 @@ ul {
 #description-element {
   text-transform: capitalize;
 }
+.currentWeatherSection {
+  margin-top: 30px;
+}
 .todayTemp {
   text-align: center;
 }
 #main-temp {
-  font-size: 22px;
+  font-size: 28px;
 }
 .current-emoji {
   text-align: center;

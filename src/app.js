@@ -79,6 +79,8 @@ function giveCurrentLocation(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  let time = document.querySelector("#time");
+  time.innerHTML = formatDate(response.data.dt * 1000);
 }
 function showCurrentLocation(position) {
   let latt = position.coords.latitude;
@@ -98,6 +100,7 @@ form.addEventListener("submit", isSearch);
 let locButton = document.querySelector("#location-button");
 locButton.addEventListener("click", currentPosition);
 
+currentPosition();
 //function changeMeasurementC(event) {
 //event.preventDefault();
 //let mainTemp = document.querySelector("#main-temp");
