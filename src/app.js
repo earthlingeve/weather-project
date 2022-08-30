@@ -44,6 +44,7 @@ function showTemp(response) {
   let humidity = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed);
   let description = response.data.weather[0].description;
+  fahrenheitTemp = response.data.main.temp;
 
   descriptionElement.innerHTML = `${description}`;
   windElement.innerHTML = `${wind}`;
@@ -81,6 +82,7 @@ function giveCurrentLocation(response) {
   );
   let time = document.querySelector("#time");
   time.innerHTML = formatDate(response.data.dt * 1000);
+  fahrenheitTemp = response.data.main.temp;
 }
 function showCurrentLocation(position) {
   let latt = position.coords.latitude;
@@ -100,23 +102,29 @@ form.addEventListener("submit", isSearch);
 let locButton = document.querySelector("#location-button");
 locButton.addEventListener("click", currentPosition);
 
-function changeMeasurementC(event) {
-  event.preventDefault();
-  let mainTemp = document.querySelector("#main-temp");
-  let celsiusTemp = "testing";
-  mainTemp.innerHTML = celsiusTemp;
-}
+let fahrenheitTemp = null;
+
 function changeMeasurementF(event) {
   event.preventDefault();
   let mainTemp = document.querySelector("#main-temp");
-  let farenheitTemp = (14 * 9) / 5 + 32;
-  mainTemp.innerHTML = farenheitTemp;
+  mainTemp.innerHTML = Math.round(fahrenheitTemp);
+  fahrenheit.classList.add("active");
+  celsius.classList.remove("active");
 }
 
-let farenheit = document.querySelector("#farenheit");
+function changeMeasurementC(event) {
+  event.preventDefault();
+  let mainTemp = document.querySelector("#main-temp");
+  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  mainTemp.innerHTML = Math.round(celsiusTemp);
+  fahrenheit.classList.remove("active");
+  celsius.classList.add("active");
+}
+
+let fahrenheit = document.querySelector("#fahrenheit");
 let celsius = document.querySelector("#celsius");
 
 celsius.addEventListener("click", changeMeasurementC);
-farenheit.addEventListener("click", changeMeasurementF);
+fahrenheit.addEventListener("click", changeMeasurementF);
 
 currentPosition();

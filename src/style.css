@@ -35,3 +35,19 @@ ul {
 #units {
   font-size: 14px;
 }
+#units .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+#units .active:hover {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+#celsius {
+  text-decoration: none;
+}
+#fahrenheit {
+  text-decoration: none;
+}
