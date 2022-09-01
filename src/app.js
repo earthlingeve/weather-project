@@ -21,6 +21,36 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Fri", "Sat", "Sun"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+            <div class="weather-forecast-date">
+              <strong>Monday</strong>
+            </div>
+            <div class="future-emoji">
+              <img
+                src="http://openweathermap.org/img/wn/04d@2x.png"
+                alt=""
+                width="42"
+              />
+            </div>
+            <div class="future-forecast-temperature">
+              <span class="future-forecast-temperature-max"> H:90°F </span
+              >|<span class="future-forecast-temperature-min">L:77°F</span>
+            </div>
+          </div>
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function isSearch(event) {
   event.preventDefault();
   let input = document.querySelector("#search-city");
@@ -128,3 +158,4 @@ celsius.addEventListener("click", changeMeasurementC);
 fahrenheit.addEventListener("click", changeMeasurementF);
 
 currentPosition();
+showForecast();
