@@ -4,6 +4,10 @@
   font-family: "Taviraj", serif;
   max-width: 800px;
 }
+.searchEngine {
+  padding-top: 15px;
+  padding-left: 5px;
+}
 h1 {
   text-align: center;
 }
