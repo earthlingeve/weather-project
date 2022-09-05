@@ -92,6 +92,8 @@ function showTemp(response) {
   let currentTemp = document.querySelector("#main-temp");
   let h2 = document.querySelector("#current-city");
   let iconElement = document.querySelector("#icon");
+  let minTempElement = document.querySelector("#min-temp");
+  let maxTempElement = document.querySelector("#max-temp");
 
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
@@ -99,6 +101,8 @@ function showTemp(response) {
   let wind = Math.round(response.data.wind.speed);
   let description = response.data.weather[0].description;
   fahrenheitTemp = response.data.main.temp;
+  let minTemp = Math.round(response.data.main.temp_min);
+  let maxTemp = Math.round(response.data.main.temp_max);
 
   descriptionElement.innerHTML = `${description}`;
   windElement.innerHTML = `${wind}`;
@@ -106,6 +110,8 @@ function showTemp(response) {
   currentTemp.innerHTML = `${temperature}`;
   humidityElement.innerHTML = `${humidity}`;
   h2.innerHTML = response.data.name;
+  minTempElement.innerHTML = `${minTemp}`;
+  maxTempElement.innerHTML = `${maxTemp}`;
   iconElement.setAttribute("alt", response.data.weather[0].description);
   iconElement.setAttribute(
     "src",
@@ -117,29 +123,39 @@ function showTemp(response) {
 function giveCurrentLocation(response) {
   console.log(response);
   let h2 = document.querySelector("#current-city");
+  let currentTemp = document.querySelector("#main-temp");
+  let windElement = document.querySelector("#wind-element");
+  let humidityElement = document.querySelector("#humidity-element");
+  let descriptionElement = document.querySelector("#description-element");
+  let iconElement = document.querySelector("#icon");
+  let minTempElement = document.querySelector("#min-temp");
+  let maxTempElement = document.querySelector("#max-temp");
+  let time = document.querySelector("#time");
+
   h2.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
-  let currentTemp = document.querySelector("#main-temp");
-  currentTemp.innerHTML = `${temperature}`;
-  let wind = Math.round(response.data.wind.speed);
-  let windElement = document.querySelector("#wind-element");
-  windElement.innerHTML = `${wind}`;
-  let humidity = response.data.main.humidity;
-  let humidityElement = document.querySelector("#humidity-element");
-  humidityElement.innerHTML = `${humidity}`;
   let description = response.data.weather[0].description;
-  let descriptionElement = document.querySelector("#description-element");
-  descriptionElement.innerHTML = `${description}`;
-  let iconElement = document.querySelector("#icon");
+  let humidity = response.data.main.humidity;
+  let wind = Math.round(response.data.wind.speed);
+  let minTemp = Math.round(response.data.main.temp_min);
+  let maxTemp = Math.round(response.data.main.temp_max);
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  fahrenheitTemp = response.data.main.temp;
+
+  windElement.innerHTML = `${wind}`;
+  minTempElement.innerHTML = `${minTemp}`;
+  maxTempElement.innerHTML = `${maxTemp}`;
+  currentTemp.innerHTML = `${temperature}`;
+  humidityElement.innerHTML = `${humidity}`;
+  descriptionElement.innerHTML = `${description}`;
+  time.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  let time = document.querySelector("#time");
-  time.innerHTML = formatDate(response.data.dt * 1000);
-  fahrenheitTemp = response.data.main.temp;
+  getForecast(response.data.coord);
 }
+
 function showCurrentLocation(position) {
   let latt = position.coords.latitude;
   let lonn = position.coords.longitude;
