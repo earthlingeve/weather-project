@@ -7,8 +7,9 @@
 h1 {
   text-align: center;
 }
-h3 {
+h5 {
   text-align: center;
+  opacity: 0.6;
 }
 ul {
   list-style: none;
