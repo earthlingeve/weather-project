@@ -13,6 +13,9 @@ h3 {
 ul {
   list-style: none;
 }
+#description {
+  font-size: 18px;
+}
 #description-element {
   text-transform: capitalize;
 }
@@ -22,12 +25,20 @@ ul {
 .todayTemp {
   text-align: center;
 }
+.todayTemp .unit {
+  position: relative;
+  top: -15px;
+}
+
 #main-temp {
-  font-size: 28px;
+  font-size: 34px;
 }
 .current-emoji {
   text-align: center;
   font-size: 22px;
+}
+.unit {
+  font-size: 16px;
 }
 .col {
   text-align: center;
@@ -38,11 +49,11 @@ ul {
   color: black;
 }
 .weather-forecast-date {
-  font-size: 16px;
+  font-size: 18px;
   opacity: 0.8;
 }
 .future-forecast-temperature {
-  font-size: 13px;
+  font-size: 16px;
 }
 .future-forecast-temperature-min {
   opacity: 0.7;
