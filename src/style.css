@@ -29,24 +29,8 @@ ul {
   text-align: center;
   font-size: 22px;
 }
-#units {
-  font-size: 14px;
-}
-#units .active {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
-#units .active:hover {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
-#celsius {
-  text-decoration: none;
-}
-#fahrenheit {
-  text-decoration: none;
+.col {
+  text-align: center;
 }
 .future-forecast {
   margin-top: 20px;

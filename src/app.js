@@ -78,7 +78,7 @@ function isSearch(event) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
+  //console.log(coordinates);
   let apiKey = "9251248a80cd4432d5256905f9a0ea2f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showForecast);
@@ -95,7 +95,7 @@ function showTemp(response) {
   let minTempElement = document.querySelector("#min-temp");
   let maxTempElement = document.querySelector("#max-temp");
 
-  console.log(response.data);
+  //console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed);
@@ -121,7 +121,7 @@ function showTemp(response) {
   getForecast(response.data.coord);
 }
 function giveCurrentLocation(response) {
-  console.log(response);
+  //console.log(response);
   let h2 = document.querySelector("#current-city");
   let currentTemp = document.querySelector("#main-temp");
   let windElement = document.querySelector("#wind-element");
@@ -173,30 +173,5 @@ form.addEventListener("submit", isSearch);
 
 let locButton = document.querySelector("#location-button");
 locButton.addEventListener("click", currentPosition);
-
-let fahrenheitTemp = null;
-
-function changeMeasurementF(event) {
-  event.preventDefault();
-  let mainTemp = document.querySelector("#main-temp");
-  mainTemp.innerHTML = Math.round(fahrenheitTemp);
-  fahrenheit.classList.add("active");
-  celsius.classList.remove("active");
-}
-
-function changeMeasurementC(event) {
-  event.preventDefault();
-  let mainTemp = document.querySelector("#main-temp");
-  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
-  mainTemp.innerHTML = Math.round(celsiusTemp);
-  fahrenheit.classList.remove("active");
-  celsius.classList.add("active");
-}
-
-let fahrenheit = document.querySelector("#fahrenheit");
-let celsius = document.querySelector("#celsius");
-
-celsius.addEventListener("click", changeMeasurementC);
-fahrenheit.addEventListener("click", changeMeasurementF);
 
 currentPosition();
